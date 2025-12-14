@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="top-header">
+            <h1>Sistemas de tarefas</h1>
+        </header>
+
+        <section class="section-one">
+            <form class="form-task" action="#">
+                <label for="task">Nome da tarefa</label>
+                <input id="task" type="text">
+                <label for="tipo">Prioridade</label>
+                <select name="prioriade" id="priority">
+                    <option value="baixa">baixa</option>
+                    <option value="média">media</option>
+                    <option value="alta">alta</option>
+                </select>
+                <div class="container-button">
+                    <button class="bt-add" id="add">Adicionar</button>
+                </div>
+            </form>
+
+        </section>
+
+        <section class="section-two">
+            <h2 class="title-task">Tarefas</h2>
+            <div class="container-buttons-two">
+                <button class="bt-completed" id="completed">Concluídas</button>
+                <button class="bt-pending" id="pending">Pendentes</button>
+                <button class="bt-all" id="all">Todas</button>
+            </div>
+            <ul class="title-message" id="message">
+            
+            </ul>
+        </section>
+
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

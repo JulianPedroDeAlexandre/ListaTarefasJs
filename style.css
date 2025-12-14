@@ -1,0 +1,161 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+li{
+    list-style: none;
+    text-align: center;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #333;
+}
+
+h1, h3{
+    color: #333;
+    text-align: center;
+    margin: 20px;
+}
+
+h2{
+    color: #333;
+    text-align: center;
+    margin: 20px;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    width: 100vw;
+    flex-direction: column;
+}
+
+.container{
+    height:auto;
+    max-width: 400px;
+    /* border: 1px solid #333; */
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.section-one{
+    max-height: 600px;
+    max-width: 400px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 10px 0;
+}
+
+.section-two{
+    max-height: auto;
+    max-width: 400px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+.container-buttons-two{
+    max-height:auto;
+    max-width: 100%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-task{
+    display: flex;
+    flex-direction: column;
+}
+
+input, select{
+    margin-top: 5px;
+    height: 30px;
+    width: 350px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 10px;
+}
+
+label{
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 5px;
+}
+.container-button{
+    display: flex;
+    justify-content: end;
+    padding: 10px;
+}
+.bt-add, .bt-completed, .bt-pending, .bt-all{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    margin: 5px;
+    color: #333;
+}
+
+/* responsividade */
+
+@media (max-width: 480px) {
+.container{
+    height:auto;
+    max-width: 300px;
+    /* border: 1px solid #333; */
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.section-one{
+    max-height: 600px;
+    max-width: 300px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 10px 0;
+}
+
+.section-two{
+    max-height: 150px;
+    max-width: 400px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+
+input, select{
+    margin-top: 5px;
+    height: 30px;
+    max-width: 250px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 10px;
+}
+
+.container-button{
+    display: flex;
+    justify-content: end;
+    padding: 10px;
+    max-width: 300px;
+}
+.bt-add, .bt-completed, .bt-pending, .bt-all{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    margin: 5px;
+    color: #333;
+}
+}
