@@ -1,7 +1,9 @@
 let btAdicionar = document.getElementById("add");
-let listaTarefas = [];
+// let listaTarefas = [];
+let textoTarefa = "Tarefa: "
+let textoPrioridade = " - Prioridade: "
 
-btAdicionar.addEventListener("click", function(event) {
+btAdicionar.addEventListener("click", function (event) {
     event.preventDefault();
 
     let intarefa = document.getElementById("task").value;
@@ -9,14 +11,21 @@ btAdicionar.addEventListener("click", function(event) {
     let inopcao = document.getElementById("priority").value;
     console.log(inopcao)
 
-    if(intarefa === "" || inopcao === ""){
+    if (intarefa === "" || inopcao === "") {
         alert("Formulario em branco");
-    }else{
+    } else {
         let novaLinha = document.createElement("li")
-        novaLinha.innerText = "Tarefa: "+intarefa+" - "+ "Prioridade: "+inopcao
-        for(let i=0; i<=listaTarefas.length; i++){
-       document.getElementById("message").appendChild(novaLinha);
-        }
+        novaLinha.classList.add("item-lista")
+        novaLinha.innerText = textoTarefa + intarefa + textoPrioridade + inopcao
+        // for(let i=0; i<=listaTarefas.length; i++){
+        document.getElementById("message").appendChild(novaLinha);
+        // }
     }
-    console.log(listaTarefas)
+    const tarefaFeita = document.querySelectorAll(".item-lista");
+    tarefaFeita.forEach((botao) => {
+        botao.addEventListener("click", () => {
+          botao.style.backgroundColor = "red"
+        });
+    });
 });
+
