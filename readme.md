@@ -1,20 +1,21 @@
-criar o array que sera dos objetos
-mapear os inputs e a lista ul
-adicionar nova tarefa com clique no botão, usar ponteiro de evento (e)
-não deixar carrega a pagina
-fazer o if do input vazio com negação da tarefa vazia
-retornar o alerta
-criar objeto tarefa ja com push({});
-limpar input tarefa
-chamar renderizar
-ciar a funcção de rendenizar
-dentro dela
-limpamos a escrita da variavel da lista ul
-    para cada tarefas com o item e posição
-    criamos a li 
-    damos uma classe
-    damos datas tatus em um ternario
-    para o endereco do dataset damos o endereco
-    escrevemos a tarefa com tamplate literals
-    inserimos como filho a li na variavel da ul
+criar o array de objetos nossa lista
+mapear o input, select e a li 
+criar o evento de clique arrowfunction com o pointer event (e) para o botao
+fazer o preventDefault do pointer event
+if para saber se não tem valor no input de tarefas
+nesse if retornar uma mensagem
+colocar na lista (push) as propriedades do objeto
+limpar o input da tarefa e chamar a função renderizar
+
+na função renderizar
+limpamos a variavel do id da ul
+foreach com item e index no array
+variavel de li para criar a li
+nessa variavel damos o nome da classe
+damos um dataset.status com um ternatio de item concluido com completed e pending
+damos um dataset.index passando o index
+damos o texto com as variaveis 
+damos para a a variavel da ul a li como filha 
+
+
 

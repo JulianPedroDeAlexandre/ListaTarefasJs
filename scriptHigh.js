@@ -31,7 +31,8 @@ listEl.addEventListener("click", (e) => {
 // 4. ADICIONAR NOVA TAREFA
 document.getElementById("add").addEventListener("click", (e) => {
     e.preventDefault();
-    if (!inputTask.value) return alert("Preencha a tarefa!");
+    if (!inputTask.value) 
+    return alert("Preencha a tarefa!");
 
     tarefas.push({
         nome: inputTask.value,
