@@ -17,5 +17,9 @@ damos um dataset.index passando o index
 damos o texto com as variaveis 
 damos para a a variavel da ul a li como filha 
 
-
-
+trocar status dos eventos
+evento de click com pointer event na var da ul
+se o evento alvo de classlist conter a classe item-lista
+uma variavel recebe o evento alvo com dataset index
+o array na posição index.concluida recebe seu contrario
+chama renderizar
