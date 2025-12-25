@@ -39,3 +39,21 @@ tarefaLi.addEventListener("click", (e) => {
         renderizar();
     }
 });
+
+document.getElementById("completed").onclick = () => filtrar("completed"); 
+document.getElementById("pending").onclick = () => filtrar("pending");
+document.getElementById("all").onclick = () => filtrar("all")
+
+function filtrar(filtro){
+    let itemFiltro = document.querySelectorAll(".item-lista");
+    let achaItem = false;
+    itemFiltro.forEach(li => {
+        let itemDaLista = li.dataset.status;
+        let mostra = (filtro === "all" || itemDaLista === filtro);
+        li.style.display = mostra ? "block" : "none";
+        if(mostra) achaItem = true;
+    });
+    if(!achaItem && arraytarefas.length > 0){
+        alert(`sem tarefas ${filtro}`);
+    }
+}

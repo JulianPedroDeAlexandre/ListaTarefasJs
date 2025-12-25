@@ -23,3 +23,14 @@ se o evento alvo de classlist conter a classe item-lista
 uma variavel recebe o evento alvo com dataset index
 o array na posição index.concluida recebe seu contrario
 chama renderizar
+
+mapeamento dos eventos de click com a função filtrar com o parametro de filtro
+função filtro com parametro
+damos para uma variavel o selectorall da classe item-lista
+iniciamos uma varivel de achar itens como false
+na variavel do selector fizemos um foreach para tag li
+uma variavel recebe essa li com datasert status
+outra variavel recebe tipo ==="all" ou status === tipo
+li de estilo display recebe o ternario de block ou none
+se a variavel que recebeu a variavel do false vira true
+outro if que nega a variavel do false e array length maior que zero  da um alerta de sem tarefas
