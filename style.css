@@ -1,191 +1,162 @@
-*{
+:root {
+    --nms-orange: #ff6600;
+    --nms-blue: #00e5ff;
+    --nms-bg: #0a0f18;
+    --nms-panel: rgba(15, 25, 35, 0.85);
+    --nms-border: rgba(0, 229, 255, 0.3);
+    --nms-text: #e0f7fa;
+}
+
+* {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    font-family: 'Rajdhani', sans-serif;
 }
 
-li{
-    list-style: none;
-    text-align: center;
-    margin: 5px;
-    padding: 10px;
-    border: 1px solid #333;
-}
-
-h1, h3{
-    color: #333;
-    text-align: center;
-    margin: 20px;
-}
-
-h2{
-    color: #333;
-    text-align: center;
-    margin: 20px;
-}
-
-body{
+body {
+    background: radial-gradient(circle at center, #1a2a3a 0%, #05080a 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 100vh; */
-    width: 100vw;
-    flex-direction: column;
+    color: var(--nms-text);
 }
 
-.container{
-    height:auto;
-    max-width: 400px;
-    /* border: 1px solid #333; */
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+.container {
+    width: 100%;
+    max-width: 550px;
+    padding: 20px;
+    perspective: 1000px;
 }
 
-.task-input-section{
-    max-height: 600px;
-    max-width: 400px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    margin: 10px 0 10px 0;
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--nms-blue);
+    text-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
+    margin-bottom: 30px;
+    text-align: center;
 }
 
-.task-list-section{
-    max-height: auto;
-    max-width: 400px;
-    border: 1px solid #333;
-    border-radius: 5px;
+.task-input-section,
+.task-list-section {
+    background: var(--nms-panel);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--nms-border);
+    border-radius: 2px;
+    /* Menos arredondado, mais técnico */
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
 }
 
-.container-buttons-two{
-    max-height:auto;
-    max-width: 100%;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
+label {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--nms-blue);
 }
 
-.form-task{
-    display: flex;
-    flex-direction: column;
+input,
+select {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--nms-border);
+    color: white;
+    margin-bottom: 15px;
+    width: 100%;
+    transition: 0.3s;
+    height: 25px;
 }
 
-input, select{
-    margin-top: 5px;
-    height: 30px;
-    width: 350px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 5px;
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--nms-orange);
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+}
+
+button {
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid var(--nms-blue);
+    background: transparent;
+    color: var(--nms-blue);
+    height: 25px;
+    width: 150px;
+    /* padding: 10px; */
+    text-align: center;
+    border-radius: 2px;
+}
+
+button:hover {
+    outline: none;
+    border-color: var(--nms-orange);
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+}
+
+.bt-add {
+    /* background: var(--nms-blue) ; */
+    color: var(--nms-blue);
+    width: 100%;
+    height: 40px;
+}
+
+
+
+.container-buttons-two button {
+    font-size: 10px;
     margin: 10px;
 }
 
-label{
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    color: #333;
-    padding: 10px;
-    font-size: 20px;
-    margin-top: 5px;
-}
-.container-button{
+.container-buttons-two {
     display: flex;
-    justify-content: end;
-    padding: 10px;
-}
-.bt-add, .bt-completed, .bt-pending, .bt-all{
-    width: 100px;
-    height: 30px;
-    border-radius: 5px;
-    margin: 5px;
-    color: #333;
-}
-.bt-completed:hover, .bt-pending:hover, .bt-all:hover {
-    filter: brightness(0.9);
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
 }
 
-.item-lista:hover{
-    cursor: pointer;
+.title-message{
+    list-style: none;
 }
-
-.item-lista{
-    background-color: white;
-
-}
-
-/* Estilo para qualquer item de lista */
 .item-lista {
-    padding: 10px;
-    cursor: pointer;
-    border: 1px solid #000000;
-}
-
-/* Estilo específico para o status 'pending' */
-.item-lista[data-status="pending"] {
-    background-color: white;
-}
-
-/* Estilo específico para o status 'completed' */
-.item-lista[data-status="completed"] {
-    background-color: #ffcccc;
-    text-decoration: line-through;
-}
-
-/* responsividade */
-
-@media (max-width: 480px) {
-.container{
-    height:auto;
-    max-width: 300px;
-    /* border: 1px solid #333; */
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.section-one{
-    max-height: 600px;
-    max-width: 300px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    margin: 10px 0 10px 0;
-}
-
-.section-two{
-    max-height: 150px;
-    max-width: 400px;
-    border: 1px solid #333;
-    border-radius: 5px;
-}
-
-
-input, select{
-    margin-top: 5px;
-    height: 30px;
-    max-width: 250px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-left: 4px solid var(--nms-blue);
     margin: 10px;
+    text-align: left;
+    transition: 0.2s;
+    font-size: 14px;
+    padding: 10px;
 }
 
-.container-button{
-    display: flex;
-    justify-content: end;
-    padding: 10px;
-    max-width: 300px;
+.item-lista:hover {
+    background: rgba(0, 229, 255, 0.1);
+    transform: translateX(5px);
 }
-.bt-add, .bt-completed, .bt-pending, .bt-all{
-    width: 100px;
-    height: 30px;
-    border-radius: 5px;
-    margin: 5px;
-    color: #333;
+
+.item-lista[data-status="completed"] {
+    border-left-color: var(--nms-orange);
+    opacity: 0.6;
+    background: rgba(0, 0, 0, 0.2);
+    color: #888;
 }
+
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--nms-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--nms-blue);
 }
