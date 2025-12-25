@@ -80,7 +80,7 @@ select:focus {
     box-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
 }
 
-.bt-completed, .bt-pending, .bt-all, .bt-add{
+.bt-completed, .bt-pending, .bt-all, .bt-add, .bt-delet-all{
     text-transform: uppercase;
     font-weight: 700;
     cursor: pointer;
@@ -124,14 +124,17 @@ button:hover {
     box-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
 }
 
-
-.bt-add {
-    /* background: var(--nms-blue) ; */
-    color: var(--nms-blue);
-    width: 100%;
-    height: 40px;
+.container-button{
+    display: flex;
+    justify-content: space-around;
 }
 
+.bt-add, .bt-delet-all {
+    /* background: var(--nms-blue) ; */
+    color: var(--nms-blue);
+    width: 40%;
+    height: 40px;
+}
 
 
 .container-buttons-two button {

@@ -1,16 +1,17 @@
-let arraytarefas = [];
-
+// let arraytarefas = [];
 const tarefaInput = document.getElementById("task");
 const prioridadeSelect = document.getElementById("priority");
 const tarefaLi = document.getElementById("message");
 const addBt = document.getElementById("add");
+const delBt = document.getElementById("deletAll");
 
-let armazenamento = JSON.parse(localStorage.getItem("RegistroDeTarefa")) || [];
+let arraytarefas = JSON.parse(localStorage.getItem("RegistroDeTarefa")) || [];
 
+renderizar();
 
 addBt.addEventListener("click", (e) =>{
     e.preventDefault();
-    if(!tarefaInput.value)
+    if(!tarefaInput.value || !prioridadeSelect.value)
         return alert("preencha o formulario");
 
     arraytarefas.push({
@@ -19,7 +20,8 @@ addBt.addEventListener("click", (e) =>{
         status:false
     });
     tarefaInput.value = "";
-    renderizar()
+    salvarTarefas()
+    // renderizar()
 });
 
 function renderizar(){
@@ -27,9 +29,9 @@ function renderizar(){
     arraytarefas.forEach((item, index) => {
         const li = document.createElement("li");
         li.className = "item-lista";
-        li.dataset.status = item.concluido ? "completed" : "pending";
+        li.dataset.status = item.status ? "completed" : "pending";
         li.dataset.index = index;
-        li.innerText = `tarefa: ${item.nome} - Prioridade: ${item.prioridade} - Status: ${item.status}`;
+        li.innerText = `tarefa: ${item.nome} - Prioridade: ${item.prioridade} - Status: ${item.status ? "Concluida" : "Pendente"}`;
         const bttRemove = document.createElement("button");
         bttRemove.innerText = "Deletar";
         bttRemove.className = "remove-tarefa"
@@ -42,8 +44,9 @@ function renderizar(){
 tarefaLi.addEventListener("click", (e) => {
     if(e.target.classList.contains("item-lista")){
         const index = e.target.dataset.index;
-       arraytarefas[index].concluido = !arraytarefas[index].concluido;
-        renderizar();
+       arraytarefas[index].status = !arraytarefas[index].status;
+       salvarTarefas();
+        // renderizar();
     }
 
     if(e.target.classList.contains("remove-tarefa")){
@@ -51,7 +54,8 @@ tarefaLi.addEventListener("click", (e) => {
         const confirmar = confirm("Tem certeza que quer remover a tarefa?")
         if(confirmar){
         arraytarefas.splice(index, 1)
-        renderizar();
+       salvarTarefas();
+        // renderizar();
         return
         }
     }
@@ -74,3 +78,18 @@ function filtrar(filtro){
         alert(`sem tarefas ${filtro}`);
     }
 }
+
+function salvarTarefas(){
+    localStorage.setItem("RegistroDeTarefa", JSON.stringify(arraytarefas))
+    renderizar();
+}
+
+delBt.addEventListener("click", () => {
+    const confirma = confirm("Tem certeza que quer deletar todas as tarefas?")
+    if(confirma){
+        localStorage.removeItem("RegistroDeTarefa");
+        arraytarefas = [];
+        renderizar();
+        alert("Todas as tarefas foram removidas.")
+    }
+});
