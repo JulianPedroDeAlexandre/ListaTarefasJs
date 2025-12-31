@@ -20,6 +20,7 @@ addBt.addEventListener("click", (e) =>{
         status:false
     });
     tarefaInput.value = "";
+    prioridadeSelect.value = "";
     salvarTarefas()
     // renderizar()
 });
@@ -31,7 +32,7 @@ function renderizar(){
         li.className = "item-lista";
         li.dataset.status = item.status ? "completed" : "pending";
         li.dataset.index = index;
-        li.innerText = `tarefa: ${item.nome} - Prioridade: ${item.prioridade} - Status: ${item.status ? "Concluida" : "Pendente"}`;
+        li.innerText = `Tarefa: ${item.nome} - Prioridade: ${item.prioridade} - Status: ${item.status ? "Concluída" : "Pendente"}`;
         const bttRemove = document.createElement("button");
         bttRemove.innerText = "Deletar";
         bttRemove.className = "remove-tarefa"
